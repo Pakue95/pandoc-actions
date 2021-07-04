@@ -19,7 +19,7 @@ jobs:
           done
       - name: convert md to pdf
         run: |
-          find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} -o output/${0%.md}.pdf' {} \; && zip output/all_checklists.zip output/*.pdf
+          find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} -o output/${0%.md}.pdf' {} \;
       - name: upload artifacts
         uses: actions/upload-artifact@master
         with:
@@ -31,5 +31,5 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: false
           title: "Testing ${{ steps.date.outputs.date }}"
-          files: output/*.pdf
+          files: output/*.pdf | output
 
