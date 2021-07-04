@@ -17,6 +17,14 @@ jobs:
       - name: convert md to pdf
         run: |
           find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} -o output/${0%.md}.pdf' {} \;
-      - uses: actions/upload-artifact@master
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
         with:
-          path: output/*
+          draft: false
+          prerelease: false
+          release_name: testname
+          tag_name: Testtag
+          body_path: output/*
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
