@@ -32,6 +32,5 @@ jobs:
           prerelease: false
           title: "Testing ${{ steps.date.outputs.date }}"
           files: |
-            output/*.pdf 
-            output/
+            output/*.pdf
 
