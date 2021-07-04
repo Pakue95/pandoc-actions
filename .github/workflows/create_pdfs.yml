@@ -25,6 +25,5 @@ jobs:
           prerelease: false
           release_name: testname
           tag_name: Testtag
-          body_path: output
         env:
           GITHUB_TOKEN: ${{ github.token }}
