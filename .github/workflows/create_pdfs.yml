@@ -34,3 +34,12 @@ jobs:
           asset_name: checklists.tar.gz
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: upload release files
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_path: output/*
+          asset_name: checklists
+          asset_content_type: application/gzip
+
