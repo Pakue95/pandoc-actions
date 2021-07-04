@@ -33,5 +33,5 @@ jobs:
           title: "Testing ${{ steps.date.outputs.date }}"
           files: |
             output/*.pdf 
-            output
+            output/
 
