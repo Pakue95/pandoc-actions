@@ -28,8 +28,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: testname2
-          tag_name: Testtag2
+          release_name: testname3
+          tag_name: Testtag3
           asset_path: ./output/checklists.tar.gz
           asset_name: checklists.tar.gz
         env:
