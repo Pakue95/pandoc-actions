@@ -21,15 +21,15 @@ jobs:
          with:
            name: checklists.tar.gz
            path: output/*
-      - name: release
-        uses: actions/create-release@v1
-        id: create_release
-        with:
-          draft: false
-          prerelease: false
-          release_name: testname2
-          tag_name: Testtag2
-          asset_path: ./output/checklists.tar.gz
-          asset_name: checklists.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+#       - name: release
+#         uses: actions/create-release@v1
+#         id: create_release
+#         with:
+#           draft: false
+#           prerelease: false
+#           release_name: testname2
+#           tag_name: Testtag2
+#           asset_path: ./output/checklists.tar.gz
+#           asset_name: checklists.tar.gz
+#         env:
+#           GITHUB_TOKEN: ${{ github.token }}
