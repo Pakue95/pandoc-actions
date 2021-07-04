@@ -9,6 +9,9 @@ jobs:
       options: --entrypoint=sh
     steps:
       - uses: actions/checkout@v2
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%h:%m')"
       - name: prepare output directories
         run: |
           for d in */; do
@@ -26,7 +29,6 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Build"
+          title: "Testing ${{ steps.date.outputs.date }}"
           files: output/*.pdf
 
