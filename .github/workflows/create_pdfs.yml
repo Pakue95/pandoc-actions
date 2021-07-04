@@ -1,5 +1,8 @@
 name: Generate PDFs
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   convert_via_pandoc:
@@ -14,12 +17,13 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H:%M')"
       - name: prepare output directories
         run: |
-          for d in */; do
-            mkdir -p output/$d
-          done
+          mkdir output
       - name: convert md to pdf
         run: |
-          find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} -o output/${0%.md}.pdf' {} \;
+          ls checklists |\
+          cut -d '.' -f1|\
+          xargs -n 1 -I % -P 2 \
+          pandoc --pdf-engine=xelatex --template checklist-template.tex -o output/%.pdf checklists/%.md
       - name: upload artifacts
         uses: actions/upload-artifact@master
         with:
@@ -33,4 +37,3 @@ jobs:
           title: "Testing ${{ steps.date.outputs.date }}"
           files: |
             output/*.pdf
-
