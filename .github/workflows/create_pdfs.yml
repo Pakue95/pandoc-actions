@@ -19,7 +19,7 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-20.04
     container:
-      image: ghcr.io//pakue95/latex-pandoc
+      image: ghcr.io//pakue95/latex-pandoc:0.1
       options: --entrypoint=sh
     steps:
       - uses: actions/checkout@v2
