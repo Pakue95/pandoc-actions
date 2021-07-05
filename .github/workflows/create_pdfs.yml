@@ -11,8 +11,8 @@ jobs:
       image: ghcr.io/pakue95/latex-pandoc:0.1
       options: --entrypoint=sh
       credentials:
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.ghcr_token }}
     steps:
       - uses: actions/checkout@v2
       - name: Get current date
