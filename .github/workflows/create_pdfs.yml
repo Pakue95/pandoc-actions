@@ -20,6 +20,7 @@ jobs:
           mkdir output
       - name: convert md to pdf
         run: |
+          ls | cat && \
           ls checklists |\
           cut -d '.' -f1|\
           xargs -n 1 -I % -P 2 \
