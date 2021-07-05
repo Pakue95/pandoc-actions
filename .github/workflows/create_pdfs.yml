@@ -12,7 +12,7 @@ jobs:
       options: --entrypoint=sh
       credentials:
         username: ${{ github.actor }}
-        password: test
+        password: ${{ secrets.ghcr_token }}
     steps:
       - uses: actions/checkout@v2
       - name: Get current date
